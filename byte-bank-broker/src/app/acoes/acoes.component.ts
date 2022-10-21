@@ -33,7 +33,7 @@ export class AcoesComponent {
     filter(
       (valorDigitado) => valorDigitado.length >= 3 || !valorDigitado.length
     ),
-    distinctUntilChanged(), // Prioriza-se na determinada chamada de um serviço, poupá-lo, caso ele já tenha sido chamado anteriormente com os mesmos parâmetros.
+    distinctUntilChanged(), // Prioriza-se, na determinada chamada de um serviço, poupar o seu consumo , caso ele já tenha sido chamado anteriormente com os mesmos parâmetros.
     switchMap((valorDigitado) => this.acoesService.getAcoes(valorDigitado))
   );
   acoes$ = merge(this.todasAcoes$, this.filtroPeloInput$);
